@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  {% if is_admin %}
+    <a href="{% url 'table' %}">Просмотреть таблицу</a>
+  {% else %}
+    <p>Просмотр доступен только аутентифицированным пользователям<p>
+    <p><a href="/admin/">Вход</a></p>
+  {% endif %}
+</body>
+</html>

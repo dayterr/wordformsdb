@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  {% if is_admin %}
+    <table>
+      <tr>
+        <th>Словоформа в корпусе</th>
+        <th>Форма 1</th>
+        <th>Форма 2</th>
+        <th>Форма 3</th>
+        <th>Форма 4</th>
+        <th>Вариативность типа</th>
+        <th>Пометки</th>
+        <th>Морфема</th>
+        <th>Часть речи</th>
+        <th>Морфологические признаки</th>
+        <th>ABS (устный корпус)</th>
+        <th>IPM (устный корпус)</th>
+        <th>ABS (основной корпус)</th>
+        <th>IPM (основной корпус)</th>
+        <th>Словарь</th>
+      </tr>
+      {% for entry in entries %}
+        <tr>
+          <td>{{ entry.wordform }}</td><td>{{ entry.form1 }}</td><td>{{ entry.form2 }}</td>
+          <td>{{ entry.form3 }}</td><td>{{ entry.form4 }}</td><td>{{ entry.var_type }}</td>
+          <td>{{ entry.notes }}</td><td>{{ entry.morph }}</td><td>{{ entry.pos }}</td>
+          <td>{{ entry.morph_feats }}</td><td>{{ entry.freq_or }}</td><td>{{ entry.ipm_or }}</td>
+          <td>{{ entry.freq_main }}</td><td>{{ entry.ipm_main }}</td><td>{{ entry.source }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p><a href="{% url 'index' %}">На главную</a></p>
+  {% endif %}
+</body>
+</html>
